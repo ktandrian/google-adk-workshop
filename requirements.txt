@@ -1,0 +1,8 @@
+google-cloud-aiplatform 
+google-cloud-discoveryengine
+google-genai
+google-adk
+ipykernel
+rich
+google-cloud-aiplatform[adk,agent_engines]
+pytz
