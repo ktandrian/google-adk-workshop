@@ -36,12 +36,10 @@ if not LOCATION:
     raise ValueError(
         "GOOGLE_CLOUD_LOCATION environment variable not set. Please set it in your .env file."
     )
-CORPUS_DISPLAY_NAME = "ADK Workshop"
-CORPUS_DESCRIPTION = "Llama Guard LLM based input output safeguard"
-# PDF_URL = "https://abc.xyz/assets/77/51/9841ad5c4fbe85b4440c47a4df8d/goog-10-k-2024.pdf"
-PDF_FILENAME = "llamaguard.pdf"
-# Get the absolute path to the PDF file in the same directory as this script
-PDF_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), PDF_FILENAME))
+CORPUS_DISPLAY_NAME = "Alphabet_10K_2024_corpus"
+CORPUS_DESCRIPTION = "Corpus containing Alphabet's 10-K 2024 document"
+PDF_URL = "https://abc.xyz/assets/77/51/9841ad5c4fbe85b4440c47a4df8d/goog-10-k-2024.pdf"
+PDF_FILENAME = "goog-10-k-2024.pdf"
 ENV_FILE_PATH = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "..", ".env")
 )
@@ -130,18 +128,20 @@ def main():
     # Update the .env file with the corpus name
     update_env_file(corpus.name, ENV_FILE_PATH)
 
-    # Check if the PDF file exists
-    if not os.path.exists(PDF_PATH):
-        print(f"Error: PDF file not found at {PDF_PATH}")
-        return
+    # Create a temporary directory to store the downloaded PDF
+    with tempfile.TemporaryDirectory() as temp_dir:
+        pdf_path = os.path.join(temp_dir, PDF_FILENAME)
 
-    # Upload the PDF to the corpus using its actual location
-    upload_pdf_to_corpus(
-        corpus_name=corpus.name,
-        pdf_path=PDF_PATH,
-        display_name=PDF_FILENAME,
-        description=CORPUS_DESCRIPTION,
-    )
+        # Download the PDF from the URL
+        download_pdf_from_url(PDF_URL, pdf_path)
+
+        # Upload the PDF to the corpus
+        upload_pdf_to_corpus(
+            corpus_name=corpus.name,
+            pdf_path=pdf_path,
+            display_name=PDF_FILENAME,
+            description="Alphabet's 10-K 2024 document",
+        )
 
     # List all files in the corpus
     list_corpus_files(corpus_name=corpus.name)
