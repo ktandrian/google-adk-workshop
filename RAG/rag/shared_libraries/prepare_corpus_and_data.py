@@ -36,7 +36,7 @@ if not LOCATION:
     raise ValueError(
         "GOOGLE_CLOUD_LOCATION environment variable not set. Please set it in your .env file."
     )
-CORPUS_DISPLAY_NAME = "Llama Guard"
+CORPUS_DISPLAY_NAME = "ADK Workshop"
 CORPUS_DESCRIPTION = "Llama Guard LLM based input output safeguard"
 # PDF_URL = "https://abc.xyz/assets/77/51/9841ad5c4fbe85b4440c47a4df8d/goog-10-k-2024.pdf"
 PDF_FILENAME = "llamaguard.pdf"
