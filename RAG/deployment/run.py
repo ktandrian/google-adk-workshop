@@ -57,7 +57,10 @@ session = agent_engine.create_session(user_id="123")
 
 queries = [
     "Hi, how are you?",
-    "How to do manual refund of unused ticket?",
+    "According to the MD&A, how might the increasing proportion of revenues derived from non-advertising sources like Google Cloud and devices potentially impact Alphabet's overall operating margin, and why?",
+    "The report mentions significant investments in AI. What specific connection is drawn between these AI investments and the company's expectations regarding future capital expenditures?",
+    "What are the key risks and uncertainties associated with Alphabet's business operations?",
+    "Thanks, I got all the information I need. Goodbye!",
 ]
 
 for query in queries:
