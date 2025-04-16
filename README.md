@@ -5,6 +5,10 @@
 
 ## Setup
 ```bash
+git clone https://github.com/yapweiyih/google-adk-workshop.git
+python -m venv .venv
+
+
 # Use your virtual env of chose
 pip install -r requirements.txt
 ```
