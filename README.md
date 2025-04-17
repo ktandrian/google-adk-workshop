@@ -44,3 +44,10 @@ pip install -r requirements.txt
 - Install 'jupyter' vscode extension
 - Reload vscode
 - Open the notebook and make sure the top right kernel is pointing to the newly created virtual env.
+
+
+## Reference
+
+Please use the following resources to learn more about ADK:
+- [ADK Documetation](https://google.github.io/adk-docs/)
+- [ADK Code Repository](https://github.com/google/adk-python)
