@@ -11,7 +11,9 @@ git clone https://github.com/yapweiyih/google-adk-workshop.git
 cd google-adk-workshop
 ```
 
-## Setup virtual env with UV
+## Setup virtual 
+
+### UV
 
 ```bash
 # Install python
@@ -28,12 +30,15 @@ source .venv/bin/activate
 uv pip install -r requirements
 ```
 
-
-# Setup virtual env with Conda
-
+### Conda
 ```bash
 conda create -n adk_release python=3.11 ipykernel -y
 conda activate adk_release
 pip install -r requirements.txt
-
 ```
+
+
+### Vscode
+- Install 'jupyter' vscode extension
+- Reload vscode
+- Open the notebook and make sure the top right kernel is pointing to the newly created virtual env.
