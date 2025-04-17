@@ -1,5 +1,7 @@
 # Documentation Retrieval Agent
 
+- This is just one of the samples takengst from https://github.com/google/adk-samples
+
 ## Overview
 
 This agent is designed to answer questions related to documents you uploaded to Vertex AI RAG Engine. It utilizes Retrieval-Augmented Generation (RAG) with the Vertex AI RAG Engine to fetch relevant documentation snippets and code references, which are then synthesized by an LLM (Gemini) to provide informative answers with citations.
