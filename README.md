@@ -27,6 +27,7 @@ uv venv
 source .venv/bin/activate
 
 # install packages
+uv add pip
 uv pip install -r requirements
 ```
 
