@@ -1,7 +1,8 @@
-## Material
+## ADK Tech Enablement Workshop
 
-[ADK Workshop slide](https://docs.google.com/presentation/d/1NgXccjzHEti5-Psc4-WPiDFo8zV_0LtUTBRqhFKDs9k/edit?usp=sharing)
-
+- The objective of this workshop is to accelerate adoption of ADK for developers
+- The contents have been selected to quickly bring delevelopers up to speed to start developing custom agent
+- Finally, example code is provided on how to deploy the agent to GCP via Agent Engine for Production.
 
 ## Setup
 - Minimum is python 3.11
