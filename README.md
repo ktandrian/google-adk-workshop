@@ -4,6 +4,19 @@
 - The contents have been selected to quickly bring delevelopers up to speed to start developing custom agent
 - Finally, example code is provided on how to deploy the agent to GCP via Agent Engine for Production.
 
+
+## Prerequisites
+- Customer to create non production sandbox GCP account
+- Attendees to have the following permission
+    - Compute Engine: roles/compute.admin
+    - Cloud Storage: roles/storage.admin
+    - Vertex AI: roles/aiplatform.admin
+    - Cloud Logging: roles/logging.admin
+    - roles/discoveryengine.admin
+- Developer to setup local laptop with gcloud CLI, refer to [this](https://cloud.google.com/sdk/docs/install)
+- Configure credentials for application development, refer to [this](https://cloud.google.com/docs/authentication/set-up-adc-local-dev-environment)
+
+
 ## Setup
 - Minimum is python 3.11
 - Checkout code
