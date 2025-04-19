@@ -1,11 +1,12 @@
-## ADK Tech Enablement Workshop
+## AI Acceleration Program - ADK Tech Enablement Workshop
 
-- The objective of this workshop is to accelerate adoption of ADK for developers
-- The contents have been selected to quickly bring delevelopers up to speed to start developing custom agent
+- The Global FSA team has created this AI Acceleration with the objective of accelerating the adoption of ADK for developers
+- The contents have been specially selected to quickly bring delevelopers up to speed to start building custom agent
 - Finally, example code is provided on how to deploy the agent to GCP via Agent Engine for Production.
 
 
 ## Prerequisites
+
 - Customer to create non production sandbox GCP account
 - Attendees to have the following permission
     - Compute Engine: roles/compute.admin
@@ -64,3 +65,11 @@ pip install -r requirements.txt
 Please use the following resources to learn more about ADK:
 - [ADK Documetation](https://google.github.io/adk-docs/)
 - [ADK Code Repository](https://github.com/google/adk-python)
+
+## Credits
+
+We would like to thanks the following team for the content of this workshop:
+
+- ADK Team
+- Agent Start Kits Team
+- Developer Relation Team
