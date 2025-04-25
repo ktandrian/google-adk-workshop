@@ -1,0 +1,8 @@
+[project]
+name = "adk-made-simple"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "google-adk>=0.2.0",
+    "pip>=25.0.1",
+]
