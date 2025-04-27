@@ -12,7 +12,3 @@ def main():
 
     _ = parser.parse_args()
     asyncio.run(serve())
-
-
-if __name__ == "__main__":
-    main()
