@@ -29,6 +29,8 @@ uv run mcp-hello-world
 
 ### Configure for Cline
 
+You need to update `GITREPO_ROOT`.
+
 ```json
 {
   "mcpServers": {
@@ -38,8 +40,8 @@ uv run mcp-hello-world
       "args": [
         "run",
         "--directory",
-        "/Users/weiyih/work/github/agentic-softwares/google-adk-workshop/mcp-hello-world",
-        "mcp-hello-world"
+        "[GITREPO_ROOT]/mcp-coffee-shop",
+        "mcp-coffee-shop"
       ],
       "transportType": "stdio",
       "disabled": false,

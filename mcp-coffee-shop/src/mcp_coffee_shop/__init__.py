@@ -1,7 +1,8 @@
 from .server import serve
 
+
 def main():
-    """MCP Hello World"""
+    """MCP Coffee Shop"""
     import argparse
     import asyncio
 
