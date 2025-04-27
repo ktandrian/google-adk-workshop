@@ -11,4 +11,14 @@ def main():
     )
 
     _ = parser.parse_args()
-    asyncio.run(serve())
+    # asyncio.run(serve())
+
+    print("Launching MCP Server exposing ADK tools...")
+    try:
+        asyncio.run(serve())
+    except KeyboardInterrupt:
+        print("\nMCP Server stopped by user.")
+    except Exception as e:
+        print(f"MCP Server encountered an error: {e}")
+    finally:
+        print("MCP Server process exiting.")
