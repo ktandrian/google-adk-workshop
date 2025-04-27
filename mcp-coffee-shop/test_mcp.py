@@ -1,5 +1,7 @@
 # ./adk_agent_samples/mcp_agent/agent.py
 import asyncio
+import json
+from typing import Any
 
 from dotenv import load_dotenv
 from google.adk.agents.llm_agent import LlmAgent
@@ -18,6 +20,59 @@ from google.genai import types
 # Load environment variables from .env file in the parent directory
 # Place this near the top, before using env vars like API keys
 load_dotenv()
+
+
+def print_friendly_event(event: Any) -> None:
+    """
+    Print event information in a user-friendly format.
+
+    Args:
+        event: The event object from the ADK runner.
+    """
+    try:
+        # Check if the event has content
+        if hasattr(event, "content") and event.content:
+            # Get the first part if available
+            parts = event.content.parts if hasattr(event.content, "parts") else []
+
+            # Handle function calls (when model decides to use a tool)
+            if parts and hasattr(parts[0], "function_call") and parts[0].function_call:
+                tool_name = parts[0].function_call.name
+                args = parts[0].function_call.args
+                print(f"🤖 MODEL ACTION: Calling tool '{tool_name}'")
+                if args:
+                    print(f"   with parameters: {json.dumps(args, indent=2)}")
+                return
+
+            # Handle function responses (when a tool returns results)
+            if (
+                parts
+                and hasattr(parts[0], "function_response")
+                and parts[0].function_response
+            ):
+                tool_name = parts[0].function_response.name
+                response = parts[0].function_response.response
+                print(f"☕ TOOL RESPONSE from '{tool_name}':")
+
+                # Extract and format the result content
+                if "result" in response and "content" in response["result"]:
+                    for content_item in response["result"]["content"]:
+                        if hasattr(content_item, "text") and content_item.text:
+                            # Format the text with indentation for readability
+                            formatted_text = "\n   ".join(content_item.text.split("\n"))
+                            print(f"   {formatted_text}")
+                return
+
+            # Handle text content (when model provides a text response)
+            if parts and hasattr(parts[0], "text") and parts[0].text:
+                print(f"🤖 MODEL RESPONSE: {parts[0].text}")
+                return
+
+        # If we couldn't parse the event in a friendly way, fall back to the default representation
+        print(f"EVENT (unrecognized format): {event}")
+    except Exception as e:
+        # If anything goes wrong during parsing, show the original event
+        print(f"EVENT (parsing error: {e}): {event}")
 
 
 # --- Step 1: Import Tools from MCP Server ---
@@ -65,12 +120,6 @@ async def async_main():
         state={}, app_name="mcp_coffee_app", user_id="user_fs"
     )
 
-    # TODO: Change the query to be relevant to YOUR specified folder.
-    # e.g., "list files in the 'documents' subfolder" or "read the file 'notes.txt'"
-    query = "show me the a list of coffee beans"
-    print(f"User Query: '{query}'")
-    content = types.Content(role="user", parts=[types.Part(text=query)])
-
     root_agent, exit_stack = await get_agent_async()
 
     runner = Runner(
@@ -81,12 +130,21 @@ async def async_main():
     )
 
     print("Running agent...")
-    events_async = runner.run_async(
-        session_id=session.id, user_id=session.user_id, new_message=content
-    )
+    query_list = [
+        "show me the a list of coffee beans",
+        "what is the most expensive item in the menu?",
+    ]
 
-    async for event in events_async:
-        print(f"Event received: {event}")
+    for query in query_list:
+        print(f"User Query: '{query}'")
+        content = types.Content(role="user", parts=[types.Part(text=query)])
+
+        events_async = runner.run_async(
+            session_id=session.id, user_id=session.user_id, new_message=content
+        )
+
+        async for event in events_async:
+            print_friendly_event(event)
 
     # Crucial Cleanup: Ensure the MCP server process connection is closed.
     print("Closing MCP server connection...")
