@@ -73,7 +73,7 @@ async def serve() -> None:
             return [
                 TextContent(
                     type="text",
-                    text=f"Available Coffee Beans:\n" + "\n".join(coffee_beans),
+                    text="Available Coffee Beans:\n" + "\n".join(coffee_beans),
                 )
             ]
         elif name == "list-menu":

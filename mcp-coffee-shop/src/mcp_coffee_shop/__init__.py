@@ -10,7 +10,7 @@ def main():
         description="give a model the ability to run a function"
     )
 
-    args = parser.parse_args()
+    _ = parser.parse_args()
     asyncio.run(serve())
 
 
