@@ -1,5 +1,6 @@
 # ./adk_agent_samples/mcp_agent/agent.py
 import asyncio
+import json
 from typing import Any
 
 from dotenv import load_dotenv
@@ -124,7 +125,7 @@ async def async_main():
         state={}, app_name="wiki_app", user_id="user_fs"
     )
 
-    query = "extract the data from wiki link https://en.wikipedia.org/wiki/ADK"
+    query = "extract the data from wiki link https://en.wikipedia.org/wiki/SpaceX, and summarize "
     print(f"User Query: '{query}'")
     content = types.Content(role="user", parts=[types.Part(text=query)])
 
@@ -143,6 +144,8 @@ async def async_main():
     )
 
     async for event in events_async:
+        print("--------------------------------")
+        # print(f"Event received: {event}")
         print_friendly_event(event)
 
     # Crucial Cleanup: Ensure the MCP server process connection is closed.
