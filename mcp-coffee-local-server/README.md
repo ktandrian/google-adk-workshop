@@ -17,15 +17,29 @@ A simple MCP server that simulates a coffee shop, providing information about co
   - Returns a sample coffee shop menu with prices
   - No arguments required
 
-## Installation
+## Configuration
 
-### Using uv
+### Configure test client
 
-```bash
-uv run mcp-hello-world
+Update the python folder in `test_agent.py`.
+
+```python
+
+async def get_tools_async():
+    print("Attempting to connect to MCP Coffee Shop server...")
+
+    tools, exit_stack = await MCPToolset.from_server(
+        # Use StdioServerParameters for local process communication
+        connection_params=StdioServerParameters(
+            command="python",  # Command to run the server
+            args=[
+                "[GIT_ROOT]/mcp-coffee-shop/src/mcp_coffee_shop/"
+            ],
+        )
+    )
+    print("MCP Toolset created successfully.")
 ```
 
-## Configuration
 
 ### Configure for Cline
 
@@ -54,10 +68,3 @@ You need to update `GITREPO_ROOT`.
 }
 ```
 
-## Debugging
-
-You can use the MCP inspector to debug the server. For uvx installations:
-
-```
-docker run --rm -p 5173:5173 -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock --pull=always mcp/inspector
-```

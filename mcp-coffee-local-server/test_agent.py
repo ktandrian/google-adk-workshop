@@ -77,7 +77,6 @@ def print_friendly_event(event: Any) -> None:
 
 # --- Step 1: Import Tools from MCP Server ---
 async def get_tools_async():
-    """Gets tools from the File System MCP Server."""
     print("Attempting to connect to MCP Coffee Shop server...")
 
     tools, exit_stack = await MCPToolset.from_server(
