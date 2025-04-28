@@ -196,3 +196,5 @@ credentials.json
 .env_example
 
 /untrack
+/obsolete
+setup_env.sh
