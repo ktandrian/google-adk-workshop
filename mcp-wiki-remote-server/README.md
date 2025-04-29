@@ -11,7 +11,7 @@ uv run server.py
 Test the server with client:
 
 ```bash
-uv run -- client.py http://localhost:8000/sse https://en.wikipedia.org/wiki/SpaceX
+uv run -- client.py http://localhost:8000/sse "https://en.wikipedia.org/wiki/Gemini_(chatbot)"
 ```
 
 

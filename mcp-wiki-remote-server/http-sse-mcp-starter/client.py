@@ -25,7 +25,7 @@ def print_items(name: str, result: any) -> None:
         print("No items available")
 
 
-async def main(server_url: str, article_url: str = None):
+async def main(server_url: str, article_url: str | None):
     """Connect to the MCP server, list its capabilities, and optionally call a tool.
 
     Args:
@@ -46,16 +46,16 @@ async def main(server_url: str, article_url: str = None):
                 print_items("prompts", await session.list_prompts())
 
                 if article_url:
-                    print("\nCalling read_wikipedia_article tool...")
+                    print("\nCalling extract_wikipedia_article tool...")
                     try:
                         # Use the documented call_tool method to invoke the tool
                         response = await session.call_tool(
-                            "read_wikipedia_article", arguments={"url": article_url}
+                            "extract_wikipedia_article", arguments={"url": article_url}
                         )
                         print("\n=== Wikipedia Article Markdown Content ===\n")
                         print(response)
                     except Exception as tool_exc:
-                        print("Error calling read_wikipedia_article tool:")
+                        print("Error calling extract_wikipedia_article tool:")
                         traceback.print_exception(
                             type(tool_exc), tool_exc, tool_exc.__traceback__
                         )
@@ -68,11 +68,9 @@ async def main(server_url: str, article_url: str = None):
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print(
-            "Usage: uv run -- client.py <server_url> [<wikipedia_article_url>]\n"
-            "Example: uv run -- client.py http://localhost:8000/sse https://en.wikipedia.org/wiki/SpaceX"
+            'Example: uv run -- client.py http://localhost:8000/sse "https://en.wikipedia.org/wiki/Gemini_(chatbot)"'
         )
         sys.exit(1)
-
     server_url = sys.argv[1]
     article_url = sys.argv[2] if len(sys.argv) > 2 else None
     asyncio.run(main(server_url, article_url))

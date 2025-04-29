@@ -84,7 +84,7 @@ async def get_tools_async():
         connection_params=StdioServerParameters(
             command="python",  # Command to run the server
             args=[
-                "/Users/weiyih/work/github/agentic-softwares/google-adk-workshop/mcp-coffee-shop/src/mcp_coffee_shop/"
+                "/Users/weiyih/work/github/agentic-softwares/google-adk-workshop/mcp-coffee-local-server/src/mcp_coffee_shop"
             ],
         )
     )

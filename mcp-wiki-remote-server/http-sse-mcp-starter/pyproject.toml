@@ -9,5 +9,4 @@ dependencies = [
     "html2text>=2024.2.26",
     "mcp[cli]>=1.2.0",
     "requests>=2.32.3",
-    "streamlit>=1.44.1",
 ]
