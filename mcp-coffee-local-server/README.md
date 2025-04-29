@@ -40,6 +40,11 @@ async def get_tools_async():
     print("MCP Toolset created successfully.")
 ```
 
+Debug with inspector.
+
+```bash
+npx @modelcontextprotocol/inspector uv run mcp-coffee-shop
+```
 
 ### Configure for Cline
 
