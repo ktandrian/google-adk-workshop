@@ -17,14 +17,20 @@ A simple MCP server that simulates a coffee shop, providing information about co
   - Returns a sample coffee shop menu with prices
   - No arguments required
 
+
+## Debug with inspector.
+
+```bash
+npx @modelcontextprotocol/inspector uv run mcp-coffee-shop
+```
+
 ## Configuration
 
-### Configure test client
+### Configuration for python client
 
-Update the python folder in `test_agent.py`.
+You need to update `GITREPO_ROOT` in `test_agent.py`.
 
 ```python
-
 async def get_tools_async():
     print("Attempting to connect to MCP Coffee Shop server...")
 
@@ -40,13 +46,7 @@ async def get_tools_async():
     print("MCP Toolset created successfully.")
 ```
 
-Debug with inspector.
-
-```bash
-npx @modelcontextprotocol/inspector uv run mcp-coffee-shop
-```
-
-### Configure for Cline
+### Configuration for IDE setting
 
 You need to update `GITREPO_ROOT`.
 
@@ -59,7 +59,7 @@ You need to update `GITREPO_ROOT`.
       "args": [
         "run",
         "--directory",
-        "[GITREPO_ROOT]/mcp-coffee-shop",
+        "[GITREPO_ROOT]/mcp-coffee-local-server/src/mcp_coffee_shop",
         "mcp-coffee-shop"
       ],
       "transportType": "stdio",
