@@ -1,5 +1,8 @@
 ## AI Acceleration Program - ADK Tech Enablement Workshop
 
+Author:
+Wei Yih Yap
+
 - The Global FSA team has created this AI Acceleration with the objective of accelerating the adoption of ADK for developers
 - The contents have been specially selected to quickly bring delevelopers up to speed to start building custom agent
 - Finally, example code is provided on how to deploy the agent to GCP via Agent Engine for Production.
@@ -35,11 +38,8 @@ cd google-adk-workshop
 uv python install 3.11
 
 # Pin a specific python version for current project
+uv init --bare
 uv python pin 3.11
-
-# Create venv
-uv venv
-source .venv/bin/activate
 
 # install packages
 uv add pip

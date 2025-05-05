@@ -73,3 +73,11 @@ You need to update `GITREPO_ROOT`.
 }
 ```
 
+# Reference
+
+Setup UV:
+- https://docs.astral.sh/uv/getting-started/installation/
+
+MCP Python SDK:
+- https://github.com/modelcontextprotocol/python-sdk
+
