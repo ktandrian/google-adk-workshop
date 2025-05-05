@@ -1,7 +1,6 @@
 ## AI Acceleration Program - ADK Tech Enablement Workshop
 
-Author:
-Wei Yih Yap
+Author: AI Acceleration Core Team.
 
 - The Global FSA team has created this AI Acceleration with the objective of accelerating the adoption of ADK for developers
 - The contents have been specially selected to quickly bring delevelopers up to speed to start building custom agent
