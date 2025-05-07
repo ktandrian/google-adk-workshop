@@ -37,12 +37,15 @@ cd google-adk-workshop
 uv python install 3.11
 
 # Pin a specific python version for current project
-uv init --bare
 uv python pin 3.11
+uv init --bare
 
 # install packages
 uv add pip
-uv pip install -r requirements
+uv pip install -r requirements.txt
+
+# identify your virtual environment
+uv python find
 ```
 
 ### Conda
