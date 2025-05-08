@@ -1,8 +1,8 @@
 ## AI Acceleration Program - ADK Tech Enablement Workshop
 
-Author: AI Acceleration Core Team.
+Author: AI Acceleration Core Team, @weiyih
 
-- The Global FSA team has created this AI Acceleration with the objective of accelerating the adoption of ADK for developers
+- The APAC FSA team has created this AI Acceleration with the objective of accelerating the adoption of ADK for developers
 - The contents have been specially selected to quickly bring delevelopers up to speed to start building custom agent
 - Finally, example code is provided on how to deploy the agent to GCP via Agent Engine for Production.
 
