@@ -30,6 +30,15 @@ cd google-adk-workshop
 
 ## Setup virtual 
 
+### python
+
+```bash
+# Assume you have python 3.11
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
 ### UV
 
 ```bash
@@ -38,11 +47,7 @@ uv python install 3.11
 
 # Pin a specific python version for current project
 uv python pin 3.11
-uv init --bare
-
-# install packages
-uv add pip
-uv pip install -r requirements.txt
+uv sync
 
 # identify your virtual environment
 uv python find

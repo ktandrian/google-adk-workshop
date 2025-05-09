@@ -6,3 +6,4 @@ ipykernel
 rich
 google-cloud-aiplatform[adk,agent_engines]
 pytz
+anthropic
