@@ -109,7 +109,7 @@ async def get_agent_async():
     root_agent = LlmAgent(
         model="gemini-2.0-flash",  # Adjust model name if needed based on availability
         name="filesystem_assistant",
-        instruction="Help user interact with the local filesystem using available tools.",
+        instruction="You are a helpful assistant that can extract and summarize information from Wikipedia pages. Use the provided tools to fetch content from URLs and provide concise, well-structured summaries of the information.",
         tools=tools,  # Provide the MCP tools to the ADK agent
     )
     return root_agent, exit_stack
