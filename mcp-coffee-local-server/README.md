@@ -21,7 +21,11 @@ A simple MCP server that simulates a coffee shop, providing information about co
 ## Debug with inspector.
 
 ```bash
-npx @modelcontextprotocol/inspector uv run mcp-coffee-shop
+npx @modelcontextprotocol/inspector
+
+# Transport type: stdio
+# Command: uv
+# Args: run src/mcp_coffee_shop/
 ```
 
 ## Configuration
