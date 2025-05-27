@@ -28,7 +28,7 @@ git clone https://github.com/yapweiyih/google-adk-workshop.git
 cd google-adk-workshop
 ```
 
-## Setup virtual 
+## Setup virtual
 
 ### python
 

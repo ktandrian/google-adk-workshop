@@ -4,7 +4,9 @@ import os
 from google.adk.agents import Agent
 
 from dotenv import load_dotenv
+
 load_dotenv()
+
 
 def get_hotel_listings():
     """
@@ -19,7 +21,7 @@ def get_hotel_listings():
             "price_per_night": 199.99,
             "rating": 4.7,
             "amenities": ["Pool", "Spa", "Restaurant", "Free WiFi", "Fitness Center"],
-            "available": True
+            "available": True,
         },
         {
             "id": "h002",
@@ -27,8 +29,14 @@ def get_hotel_listings():
             "location": "Beachfront",
             "price_per_night": 299.99,
             "rating": 4.9,
-            "amenities": ["Private Beach", "Multiple Pools", "Spa", "5 Restaurants", "Room Service"],
-            "available": True
+            "amenities": [
+                "Private Beach",
+                "Multiple Pools",
+                "Spa",
+                "5 Restaurants",
+                "Room Service",
+            ],
+            "available": True,
         },
         {
             "id": "h003",
@@ -37,7 +45,7 @@ def get_hotel_listings():
             "price_per_night": 89.99,
             "rating": 3.5,
             "amenities": ["Free WiFi", "Breakfast Included", "Shuttle Service"],
-            "available": True
+            "available": True,
         },
         {
             "id": "h004",
@@ -46,7 +54,7 @@ def get_hotel_listings():
             "price_per_night": 159.99,
             "rating": 4.5,
             "amenities": ["Hiking Trails", "Restaurant", "Fireplace", "Scenic Views"],
-            "available": False
+            "available": False,
         },
         {
             "id": "h005",
@@ -55,11 +63,13 @@ def get_hotel_listings():
             "price_per_night": 179.99,
             "rating": 4.2,
             "amenities": ["Kitchen", "Workspace", "Gym Access", "Laundry Service"],
-            "available": True
-        }
+            "available": True,
+        },
     ]
-    
+
     return hotels
+
+
 # Define the Agent
 agent = Agent(
     name="hotel_agent",

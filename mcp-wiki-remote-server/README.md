@@ -21,5 +21,5 @@ uv run -- client.py http://localhost:8000/sse "https://en.wikipedia.org/wiki/Gem
 ```bash
 cd mcp-wiki-remote-server
 uv sync
-uv run test_agent.py 
+uv run test_agent.py
 ```

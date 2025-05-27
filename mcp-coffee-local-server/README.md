@@ -84,4 +84,3 @@ Setup UV:
 
 MCP Python SDK:
 - https://github.com/modelcontextprotocol/python-sdk
-

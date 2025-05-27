@@ -15,6 +15,7 @@ from mcp.server.sse import SseServerTransport
 
 mcp = FastMCP("wiki")
 
+
 @mcp.tool()
 def extract_wikipedia_article(url: str) -> str:
     """
@@ -33,7 +34,7 @@ def extract_wikipedia_article(url: str) -> str:
             raise McpError(
                 ErrorData(
                     code=INTERNAL_ERROR,
-                    message=f"Unable to access the article. Server returned status: {response.status_code}"
+                    message=f"Unable to access the article. Server returned status: {response.status_code}",
                 )
             )
         soup = BeautifulSoup(response.text, "html.parser")
@@ -42,16 +43,22 @@ def extract_wikipedia_article(url: str) -> str:
             raise McpError(
                 ErrorData(
                     code=INVALID_PARAMS,
-                    message="The main article content section was not found at the specified Wikipedia URL."
+                    message="The main article content section was not found at the specified Wikipedia URL.",
                 )
             )
         markdown_text = html2text(str(content_div))
         return markdown_text
 
     except Exception as e:
-        raise McpError(ErrorData(code=INTERNAL_ERROR, message=f"An unexpected error occurred: {str(e)}")) from e
+        raise McpError(
+            ErrorData(
+                code=INTERNAL_ERROR, message=f"An unexpected error occurred: {str(e)}"
+            )
+        ) from e
+
 
 sse = SseServerTransport("/messages/")
+
 
 async def handle_sse(request: Request) -> None:
     _server = mcp._mcp_server
@@ -61,6 +68,7 @@ async def handle_sse(request: Request) -> None:
         request._send,
     ) as (reader, writer):
         await _server.run(reader, writer, _server.create_initialization_options())
+
 
 app = Starlette(
     debug=True,
