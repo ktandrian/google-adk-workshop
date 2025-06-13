@@ -71,7 +71,7 @@ def get_hotel_listings():
 
 
 # Define the Agent
-agent = Agent(
+root_agent = Agent(
     name="hotel_agent",
     description="An agent that provides hotel listing information based on user queries and preferences.",
     model="gemini-2.0-flash",
