@@ -30,16 +30,7 @@ cd google-adk-workshop
 
 ## Setup virtual
 
-### python
-
-```bash
-# Assume you have python 3.11
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-### UV
+### UV (Recommended)
 
 ```bash
 # Install python
@@ -51,6 +42,15 @@ uv sync
 
 # identify your virtual environment
 uv python find
+```
+
+### python
+
+```bash
+# Assume you have python 3.11
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ### Conda
