@@ -2,13 +2,8 @@ name: Run Jupyter Notebooks
 
 on:
   push:
-    paths:
-      - '**.ipynb'
-      - '.github/workflows/run-notebooks.yml'
-  pull_request:
-    paths:
-      - '**.ipynb'
-      - '.github/workflows/run-notebooks.yml'
+    branches:
+      - main
 
 jobs:
   test-notebooks:
