@@ -31,6 +31,8 @@ jobs:
 
       - name: Set up uv and install dependencies
         run: |
+          pip install --upgrade pip
+          pip install uv
           uv sync
 
       - name: Run all notebooks
