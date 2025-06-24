@@ -31,9 +31,7 @@ jobs:
 
       - name: Set up uv and install dependencies
         run: |
-          pip install --upgrade pip
-          pip install uv
-          uv pip install -r pyproject.toml
+          uv sync
 
       - name: Run all notebooks
         env:
@@ -42,5 +40,5 @@ jobs:
           set -e
           for nb in $(find . -name "*.ipynb"); do
             echo "Running $nb"
-            jupyter nbconvert --to notebook --execute --inplace "$nb"
+            uv run jupyter nbconvert --to notebook --execute --inplace "$nb"
           done
